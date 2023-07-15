@@ -1,6 +1,10 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
 import News from '../views/News.vue'
+import History from '../views/History.vue'
+import Managehome from '../views/manage/Managehome.vue'
+import Login from '../views/manage/Login.vue'
+
 
 const routes = [
   {
@@ -18,9 +22,25 @@ const routes = [
   {
     path: '/news',
     name: 'news',
-    component: function () {
-      return import('../views/News.vue')
+    component: News
+  },
+  {
+    path: '/history',
+    name: history,
+    component: History
+  },
+  {
+    path: '/managehome',
+    name: Managehome,
+    component: Managehome,
+    meta: {
+      requiresAuth: true
     }
+  },
+  {
+    path: '/login',
+    name: Login,
+    component: Login
   }
 ]
 

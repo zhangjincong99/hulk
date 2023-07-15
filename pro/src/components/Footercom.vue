@@ -2,6 +2,7 @@
 <template>
   <footer>
     <p>{{ message }}</p>
+    <a href="/login">管理员登录</a>
   </footer>
 </template>
 
@@ -10,7 +11,7 @@ export default {
   name: 'Footer',
   data() {
     return {
-      message: '© 2023 我是尾部. All rights reserved.'
+      message: '© 2023 云南省楚雄市绿巨人生物科技有限公司. All rights reserved.'
     }
   }
 }
@@ -18,7 +19,7 @@ export default {
 
 <style scoped>
 footer {
-  background-color: #f2f2f2;
+  background-color: white;
   padding: 20px;
   text-align: center;
 }

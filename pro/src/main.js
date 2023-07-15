@@ -15,6 +15,7 @@ for (let i in ElementPlusIconsVue) {
     app.component(i, ElementPlusIconsVue[i])
 }
 
+//全局配置axios
 axios.defaults.withCredentials = true
 
 app.config.globalProperties.axios = axios
