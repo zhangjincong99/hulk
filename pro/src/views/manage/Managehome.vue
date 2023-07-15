@@ -19,17 +19,27 @@
 import Managenews from "../Managenews.vue";
 import AccountVue from "../Account.vue";
 import MgemessageVue from "../Mgemessage.vue";
-import { mapState } from "vuex";
 
 export default {
   name: "headercom",
+  data() {
+    return {
+      islogin: false,
+    };
+  },
   components: {
     Managenews,
     AccountVue,
     MgemessageVue,
   },
-  computed: {
-    ...mapState(["islogin"]),
+  mounted() {
+    this.axios.post("http://127.0.0.1:5001/islogin").then((res) => {
+      if (res.data.res == "yes") {
+        this.islogin = true;
+      }else{
+        this.$router.push("/404")
+      }
+    });
   },
 };
 </script>

@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-    <headercom-vue></headercom-vue>
+    <Headercom></Headercom>
     <div class="content">
       <div class="intro">
         <el-carousel
@@ -115,20 +115,20 @@
         </el-form>
       </div>
     </div>
-    <footercom-vue></footercom-vue>
+    <Footercom></Footercom>
   </div>
 </template>
 
 <script>
-import FootercomVue from "@/components/Footercom.vue";
-import HeadercomVue from "@/components/Headercom.vue";
+import Footercom from "@/components/Footercom.vue";
+import Headercom from "@/components/Headercom.vue";
 import { ElMessage } from "element-plus";
 
 export default {
   name: "HomeView",
   components: {
-    HeadercomVue,
-    FootercomVue,
+    Headercom,
+    Footercom,
   },
   data() {
     return {

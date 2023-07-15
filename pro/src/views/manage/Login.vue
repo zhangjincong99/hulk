@@ -62,7 +62,7 @@ export default {
           if (res.data.res === "ok") {
             ElMessage({
               message: "登录成功！",
-              type: "ok",
+              type: "success",
             });
             this.$store.commit("setLoginState", true);
             setTimeout(() => {

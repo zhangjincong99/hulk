@@ -4,6 +4,7 @@ import News from '../views/News.vue'
 import History from '../views/History.vue'
 import Managehome from '../views/manage/Managehome.vue'
 import Login from '../views/manage/Login.vue'
+import Notfoundpage from '../views/Notfoundpage.vue'
 
 
 const routes = [
@@ -41,7 +42,12 @@ const routes = [
     path: '/login',
     name: Login,
     component: Login
-  }
+  },
+  {
+    path: '/404',
+    name: 'notfoundpage',
+    component: Notfoundpage
+  },
 ]
 
 const router = createRouter({

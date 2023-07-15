@@ -77,7 +77,7 @@
 import { mapMutations, mapState } from "vuex";
 
 export default {
-  name: "headercom",
+  name: "Headercom",
   computed: {
     ...mapState(["activeMenu"]),
   },

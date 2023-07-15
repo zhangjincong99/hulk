@@ -8,7 +8,7 @@
 
 <script>
 export default {
-  name: 'Footer',
+  name: 'Footercom',
   data() {
     return {
       message: '© 2023 云南省楚雄市绿巨人生物科技有限公司. All rights reserved.'
