@@ -5,6 +5,7 @@ import History from '../views/History.vue'
 import Managehome from '../views/manage/Managehome.vue'
 import Login from '../views/manage/Login.vue'
 import Notfoundpage from '../views/Notfoundpage.vue'
+import products from '../views/productspage.vue'
 
 
 const routes = [
@@ -47,6 +48,11 @@ const routes = [
     path: '/404',
     name: 'notfoundpage',
     component: Notfoundpage
+  },
+  {
+    path: '/products',
+    name: products,
+    component: products
   },
 ]
 
