@@ -18,7 +18,7 @@
             </td>
             <td>
               <router-link
-                to="/about-kiwi"
+                to="/AboutKiwi"
                 class="nav-link"
                 :class="{ active: activeMenu === 'kiwi' }"
                 @click="handleTabClick('kiwi')"

@@ -5,9 +5,9 @@ import History from '../views/History.vue'
 import Managehome from '../views/manage/Managehome.vue'
 import Login from '../views/manage/Login.vue'
 import Notfoundpage from '../views/Notfoundpage.vue'
-import products from '../views/productspage.vue'
-import contact from '../views/contactpage'
-
+import Products from '../views/ProductsPage.vue'
+import Contact from '../views/ContactPage.vue'
+import AboutKiwi from '../views/AboutKiwiPage.vue'
 
 const routes = [
   {
@@ -51,15 +51,21 @@ const routes = [
     component: Notfoundpage
   },
   {
-    path: '/products',
-    name: products,
-    component: products
+    path: '/Products',
+    name: Products,
+    component: Products
   },
   {
-    path: '/contact',
-    name: contact,
-    component: contact
+    path: '/Contact',
+    name: Contact,
+    component: Contact
   },
+  {
+    path: '/AboutKiwi',
+    name: AboutKiwi,
+    component: AboutKiwi
+  },
+
 ]
 
 const router = createRouter({

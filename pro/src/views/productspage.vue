@@ -99,6 +99,7 @@ import FootercomVue from '@/components/Footercom.vue';
 import HeadercomVue from '@/components/Headercom.vue';
 
 export default {
+  name: "ProductsPage",
   components: {
     Carousel,
     FootercomVue,

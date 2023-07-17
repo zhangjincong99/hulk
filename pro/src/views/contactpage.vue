@@ -126,7 +126,7 @@ import Headercom from "@/components/Headercom.vue";
 import { ElMessage } from "element-plus";
 
 export default {
-  name: "HomeView",
+  name: "ContactPage",
   components: {
     Headercom,
     Footercom,
