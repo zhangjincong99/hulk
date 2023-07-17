@@ -6,6 +6,7 @@ import Managehome from '../views/manage/Managehome.vue'
 import Login from '../views/manage/Login.vue'
 import Notfoundpage from '../views/Notfoundpage.vue'
 import products from '../views/productspage.vue'
+import contact from '../views/contactpage'
 
 
 const routes = [
@@ -53,6 +54,11 @@ const routes = [
     path: '/products',
     name: products,
     component: products
+  },
+  {
+    path: '/contact',
+    name: contact,
+    component: contact
   },
 ]
 
