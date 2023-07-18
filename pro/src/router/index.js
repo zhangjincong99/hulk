@@ -5,11 +5,17 @@ import History from '../views/History.vue'
 import Managehome from '../views/manage/Managehome.vue'
 import Login from '../views/manage/Login.vue'
 import Notfoundpage from '../views/Notfoundpage.vue'
+
 import Shownews from '../views/Shownews.vue'
 import Managenews from '../views/Managenews.vue'
 import Mgemessage from '../views/Mgemessage.vue'
 import Account from '../views/Account.vue'
 import Mgenews from '../views/Mgenews.vue'
+
+
+import Products from '../views/ProductsPage.vue'
+import Contact from '../views/ContactPage.vue'
+import AboutKiwi from '../views/AboutKiwiPage.vue'
 
 
 const routes = [
@@ -77,6 +83,22 @@ const routes = [
     name: Shownews,
     component: Shownews
   },
+  {
+    path: '/Products',
+    name: Products,
+    component: Products
+  },
+  {
+    path: '/Contact',
+    name: Contact,
+    component: Contact
+  },
+  {
+    path: '/AboutKiwi',
+    name: AboutKiwi,
+    component: AboutKiwi
+  },
+
 ]
 
 const router = createRouter({
