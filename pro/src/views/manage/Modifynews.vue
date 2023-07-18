@@ -24,9 +24,6 @@
           v-model="time"
           class="title-input"
         />
-        <el-button type="primary" @click="getCurrentTime" class="gettime"
-          >获取当前时间</el-button
-        >
       </el-form-item>
       <el-form-item label="文章内容：" class="content-item">
         <div class="file-upload">
@@ -49,20 +46,7 @@
       </el-form-item>
 
       <el-form-item>
-        <el-button
-          type="primary"
-          color="#009966"
-          @click="postarticle"
-          v-if="aid == 0"
-        >
-          发表文章
-        </el-button>
-        <el-button
-          type="primary"
-          color="#009966"
-          @click="uparticle"
-          v-if="aid > 0"
-        >
+        <el-button type="primary" color="#009966" @click="uparticle">
           保存文章
         </el-button>
         <el-button @click="clearcon">重置</el-button>
@@ -76,15 +60,13 @@ import { QuillEditor } from "@vueup/vue-quill";
 import { ElMessage } from "element-plus";
 import "@vueup/vue-quill/dist/vue-quill.snow.css";
 import axios from "axios";
-import moment from "moment";
 
 export default {
   data() {
     return {
-      aid: 0,
       title: "",
-      time: "",
       author: "",
+      time: "",
       content: "",
       options: {
         modules: {
@@ -123,12 +105,7 @@ export default {
   methods: {
     clearcon() {
       this.title = "";
-      this.author = "";
-      this.time = "";
       this.quill.setContents("");
-    },
-    getCurrentTime() {
-      this.time = moment().format("YYYY-MM-DD");
     },
     checkArticles() {
       this.content = this.quill.getContents();
@@ -136,11 +113,11 @@ export default {
         ElMessage.error("标题不能为空");
         return false;
       }
-      if (!this.author) {
+      if (!this.author.trim()) {
         ElMessage.error("作者不能为空");
         return false;
       }
-      if (!this.time) {
+      if (!this.time.trim()) {
         ElMessage.error("时间不能为空");
         return false;
       }
@@ -160,8 +137,8 @@ export default {
         let data = {
           aid: this.aid,
           title: this.title.trim(),
-          author: this.author,
           time: this.time,
+          author: this.author.trim(),
           con: this.content,
         };
         axios
@@ -172,29 +149,6 @@ export default {
                 message: "文章更新成功",
                 type: "success",
               });
-            } else {
-              ElMessage.error("程序出错");
-            }
-          });
-      }
-    },
-    postarticle() {
-      if (this.checkArticles()) {
-        let data = {
-          title: this.title.trim(),
-          author: this.author.trim(),
-          time: this.time,
-          con: this.content,
-        };
-        axios
-          .post("http://127.0.0.1:5000/postarticle", this.qs.stringify(data))
-          .then((res) => {
-            if (res.data.res == "ok") {
-              ElMessage({
-                message: "文章发布成功",
-                type: "success",
-              });
-              this.clearcon();
             } else {
               ElMessage.error("程序出错");
             }
@@ -254,8 +208,8 @@ export default {
           } else {
             this.title = res.data.res[0].title;
             this.author = res.data.res[0].author;
-            this.time = moment(res.data.res[0].time).format("YYYY-MM-DD");
-            this.quill.setHTML(res.data.res[0].content);
+            this.time = res.data.res[0].time;
+            this.quill.setHTML(res.data.res[0].con);
           }
         });
     }
@@ -270,10 +224,6 @@ export default {
 
 .quill-editor {
   height: 500px;
-}
-
-.gettime {
-  margin-left: 10px;
 }
 </style>
 

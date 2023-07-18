@@ -1,6 +1,6 @@
 <template>
   <div class="login-container">
-    <el-form ref="loginForm" :model="loginData" class="login-form">
+    <el-form ref="loginForm" class="login-form">
       <el-form-item label="">
         <h1 class="login-title">管理员登录</h1>
       </el-form-item>
@@ -28,7 +28,6 @@
 
 <script>
 import { ElMessage } from "element-plus";
-import { mapState } from "vuex";
 
 export default {
   name: "login",
@@ -37,9 +36,6 @@ export default {
       username: "",
       password: "",
     };
-  },
-  computed: {
-    ...mapState(["islogin"]),
   },
   methods: {
     login() {
@@ -57,14 +53,13 @@ export default {
       };
 
       this.axios
-        .post("http://127.0.0.1:5001/userlogin", this.qs.stringify(data))
+        .post("http://127.0.0.1:5000/userlogin", this.qs.stringify(data))
         .then((res) => {
           if (res.data.res === "ok") {
             ElMessage({
               message: "登录成功！",
               type: "success",
             });
-            this.$store.commit("setLoginState", true);
             setTimeout(() => {
               this.$router.push("/managehome");
             }, 1000);
@@ -73,8 +68,6 @@ export default {
             return;
           }
         });
-      // 清空表单
-      this.$refs.loginForm.resetFields();
     },
     gobackhome() {
       this.$router.push("/");

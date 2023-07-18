@@ -166,7 +166,7 @@ export default {
         message: this.message,
       };
       this.axios
-        .post("http://127.0.0.1:5001/getmessage", this.qs.stringify(dataframe))
+        .post("http://127.0.0.1:5000/getmessage", this.qs.stringify(dataframe))
         .then((response) => {
           // 请求成功处理逻辑
           if (response.data.res === "success") {

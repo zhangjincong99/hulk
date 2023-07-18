@@ -5,6 +5,11 @@ import History from '../views/History.vue'
 import Managehome from '../views/manage/Managehome.vue'
 import Login from '../views/manage/Login.vue'
 import Notfoundpage from '../views/Notfoundpage.vue'
+import Shownews from '../views/Shownews.vue'
+import Managenews from '../views/Managenews.vue'
+import Mgemessage from '../views/Mgemessage.vue'
+import Account from '../views/Account.vue'
+import Mgenews from '../views/Mgenews.vue'
 
 
 const routes = [
@@ -34,9 +39,28 @@ const routes = [
     path: '/managehome',
     name: Managehome,
     component: Managehome,
-    meta: {
-      requiresAuth: true
-    }
+    children:[
+      {
+        path: 'managenews/:aid',
+        name: "Managenews",
+        component: Managenews
+      },
+      {
+        path: 'mgemessage',
+        name: "Mgemessage",
+        component: Mgemessage
+      },
+      {
+        path: 'account',
+        name: "Account",
+        component: Account
+      },
+      {
+        path: 'mgenews',
+        name: "Mgenews",
+        component: Mgenews
+      }
+    ]
   },
   {
     path: '/login',
@@ -47,6 +71,11 @@ const routes = [
     path: '/404',
     name: 'notfoundpage',
     component: Notfoundpage
+  },
+  {
+    path: '/news/:id',
+    name: Shownews,
+    component: Shownews
   },
 ]
 
