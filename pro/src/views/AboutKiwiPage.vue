@@ -8,19 +8,16 @@
           <p class="product-title">Kiwifruit</p>
         </div>
       </div>
-
-
-
-
       <div class="row">
         <div class="column">
           <div>
             <p class="mht-title">猕猴桃</p>
             <p class="text-title">
-              褚氏农业由褚时健先生牵头成立，致力于使用现代农业技术和标准化管理体系进行水果种植，同时也开展优质水果品种繁育、种植技术、精深加工技术和工艺等方面的研究。旗下有明星品牌“褚橙”“云冠橙”。
+               猕猴桃（拉丁学名：Actinidia chinensis Planch.），中文名为 中华猕猴桃 ，俗名为 藤梨 、羊桃藤、 阳桃 、 奇异果 、几维果等， 杜鹃花目 猕猴桃科 猕猴桃属 植物。
             </p>
             <p class="text-title">
-              2002年，褚时健老人在哀牢山深处的戛洒镇种下了第一批冰糖橙，命名褚橙，经过多年精心培育褚橙以其皮薄汁多，黄金甜酸比，清甜化渣，的特性赢得市场口碑，成为最受亚洲人喜爱的甜橙品牌之一，并于2017年达成单品产值近三个亿的优秀成绩。
+              猕猴桃是一种营养价值极高的水果，被誉为“水果之王”。 它含有亮氨酸、苯丙氨酸、异亮氨酸、酪氨酸、丙氨酸等十多种氨基酸，以及丰富的矿物质，包括丰富的钙、磷、铁，还含有胡萝卜素和多种维生素。
+              多食用猕猴桃可以预防老年骨质疏松，抑制胆固醇的沉积，从而防治动脉硬化，还可改善心肌功能,防治心脏病等，也能对抗癌起到一点儿作用。
             </p>
           </div>
         </div>
@@ -30,19 +27,15 @@
           </div>
         </div>
       </div>
-
-
       <div class="entries">
-        <div v-for="entry in timelineEntries" :key="entry.year" class="entry">
-          <div class="title" :class="{ big: entry.isBig }">{{ entry.year }}</div>
+        <div v-for="entry in timelineEntries" :key="entry.month" class="entry">
+          <div class="title" :class="{ big: entry.isBig }">{{ entry.month }}</div>
           <div class="body">
             <p v-for="paragraph in entry.content" :key="paragraph">{{ paragraph }}</p>
           </div>
         </div>
-      </div>
+      </div> 
     </div>
-
-
   </div>
   <!-- <Footercom></Footercom> -->
 </template>
@@ -62,46 +55,45 @@ export default {
     return {
       timelineEntries: [
         {
-          year: 2011,
+          month: "1月~2月",
           isBig: false,
           content: [
-            "2011年，褚时健老人在哀牢山深处的戛洒镇种下了第一批冰糖橙",
+            " 花芽分、花蕾现",
           ],
         },
         {
-          year: 2012,
+          month: "3月",
           isBig: false,
-          content: ["2012年，褚橙在全国范围内得到广大消费者的认可，树立了中国农产品的强势品牌"],
+          content: ["繁花"],
         },
         {
-          year: 2013,
+          month: "4月~5月",
           isBig: true,
-          content: ["Rerum sit libero possimus amet excepturi. Exercitationem enim dolores sunt praesentium dolorum praesentium."],
+          content: ["结果"],
         },
         {
-          year: 2014,
+          month: "8月",
           isBig: false,
           content: [
-            "Voluptatibus veniam ea reprehenderit atque. Reiciendis non laborum adipisci ipsa pariatur omnis. Sed ipsam repudiandae velit. Omnis libero nostrum aperiam nemo dolor ea eos eius. Esse a non itaque quidem.",
+            "盛果",
           ],
         },
         {
-          year: 2015,
+          month: "9月",
           isBig: false,
           content: [
-            "VAdipisci totam omnis cum et suscipit excepturi et excepturi. Inventore sequi sit ut aliquid. Modi aut dolores dignissimos.",
-            "Delectus facere officia consequuntur molestias deserunt illo. Placeat laudantium beatae natus excepturi ab nihil voluptates.",
+            "月青果转黄",
           ],
         },
         {
-          year: 2016,
+          month: "10月底",
           isBig: true,
-          content: ["Impedit dolorem commodi explicabo fugit aut alias voluptatem. Magnam earum rerum quae dicta quibusdam aliquam ut."],
+          content: ["月底果熟待采"],
         },
         {
-          year: 2017,
+          month: "11月初",
           isBig: false,
-          content: ["Qui facere eos aut suscipit doloremque quos..."],
+          content: ["初采果 应季上市"],
         },
       ],
     };
@@ -213,11 +205,12 @@ export default {
 }
 
 .text-title {
-  font-size: 25px;
+  font-size: 23px;
   margin-left: 0;
   text-indent: 2em;
   /* 首行缩进2个字符 */
   text-align: left;
+  color: gray;
 
 }
 
