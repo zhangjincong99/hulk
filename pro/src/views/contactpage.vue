@@ -1,7 +1,6 @@
 <template>
   <div class="home">
     <Headercom></Headercom>
-    <!-- 添加的框 -->
     <div class="contact-box">
       <div class="contact-header">
         <div class="contact-title" colspan="4">

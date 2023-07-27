@@ -13,6 +13,7 @@
           <div>
             <!-- <p class="mht-title">猕猴桃</p> -->
             <p class="text-title">
+<<<<<<< HEAD
                猕猴桃（拉丁学名：Actinidia chinensis Planch.），中文名为
               中华猕猴桃 ，俗名为 藤梨 、羊桃藤、 阳桃 、 奇异果 、几维果等，
               杜鹃花目 猕猴桃科 猕猴桃属 植物。
@@ -20,6 +21,12 @@
             <p class="text-title">
               猕猴桃是一种营养价值极高的水果，被誉为“水果之王”。
               它含有亮氨酸、苯丙氨酸、异亮氨酸、酪氨酸、丙氨酸等十多种氨基酸，以及丰富的矿物质，包括丰富的钙、磷、铁，还含有胡萝卜素和多种维生素。
+=======
+               猕猴桃（拉丁学名：Actinidia chinensis Planch.），中文名为 中华猕猴桃 ，俗名为 藤梨 、羊桃藤、 阳桃 、 奇异果 、几维果等， 杜鹃花目 猕猴桃科 猕猴桃属 植物。
+            </p>
+            <p class="text-title">
+              猕猴桃是一种营养价值极高的水果，被誉为“水果之王”。 它含有亮氨酸、苯丙氨酸、异亮氨酸、酪氨酸、丙氨酸等十多种氨基酸，以及丰富的矿物质，包括丰富的钙、磷、铁，还含有胡萝卜素和多种维生素。
+>>>>>>> b33ef7ca9ff25562a77743520dd771e682768784
               多食用猕猴桃可以预防老年骨质疏松，抑制胆固醇的沉积，从而防治动脉硬化，还可改善心肌功能,防治心脏病等，也能对抗癌起到一点儿作用。
             </p>
           </div>
@@ -30,20 +37,30 @@
           </div>
         </div>
       </div>
+<<<<<<< HEAD
 
       <div class="entries">
         <div v-for="entry in timelineEntries" :key="entry.month" class="entry">
           <div class="title" :class="{ big: entry.isBig }">
             {{ entry.month }}
           </div>
+=======
+      <div class="entries">
+        <div v-for="entry in timelineEntries" :key="entry.month" class="entry">
+          <div class="title" :class="{ big: entry.isBig }">{{ entry.month }}</div>
+>>>>>>> b33ef7ca9ff25562a77743520dd771e682768784
           <div class="body">
             <p v-for="paragraph in entry.content" :key="paragraph">
               {{ paragraph }}
             </p>
           </div>
         </div>
+<<<<<<< HEAD
       </div>
       <div class="foot"><Footercom></Footercom></div>
+=======
+      </div> 
+>>>>>>> b33ef7ca9ff25562a77743520dd771e682768784
     </div>
   </div>
 </template>
@@ -64,7 +81,13 @@ export default {
         {
           month: "1月~2月",
           isBig: false,
+<<<<<<< HEAD
           content: [" 花芽分、花蕾现"],
+=======
+          content: [
+            " 花芽分、花蕾现",
+          ],
+>>>>>>> b33ef7ca9ff25562a77743520dd771e682768784
         },
         {
           month: "3月",
@@ -79,12 +102,24 @@ export default {
         {
           month: "8月",
           isBig: false,
+<<<<<<< HEAD
           content: ["盛果"],
+=======
+          content: [
+            "盛果",
+          ],
+>>>>>>> b33ef7ca9ff25562a77743520dd771e682768784
         },
         {
           month: "9月",
           isBig: false,
+<<<<<<< HEAD
           content: ["月青果转黄"],
+=======
+          content: [
+            "月青果转黄",
+          ],
+>>>>>>> b33ef7ca9ff25562a77743520dd771e682768784
         },
         {
           month: "10月底",
@@ -210,6 +245,10 @@ export default {
   /* 首行缩进2个字符 */
   text-align: left;
   color: gray;
+<<<<<<< HEAD
+=======
+
+>>>>>>> b33ef7ca9ff25562a77743520dd771e682768784
 }
 
 .mht-title {

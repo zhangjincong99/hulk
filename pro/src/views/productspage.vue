@@ -15,6 +15,7 @@
               </h4>
               <p class="text-content"></p>
               <p class="product-paragraph">
+<<<<<<< HEAD
                 云南省楚雄彝族自治州楚雄市东华镇猕猴桃基地
               </p>
               <p class="jinweidu">经纬度：E101.49 N24.98</p>
@@ -27,6 +28,31 @@
               <p class="product-subtitle">年日照时数为2200～2400小时，</p>
               <p class="product-subtitle">
                 2017 年 1 月被认定为绿色食品 A 级产品
+=======
+                云南省玉溪市新平县戛洒镇褚橙庄园
+              </p>
+              <p class="jinweidu">
+                经纬度：E101.55 N24.11
+              </p>
+              <p class="text-content"></p>
+              <p class="product-subtitle">
+                庄园位于哀牢山中段东麓，占地6300亩，
+              </p>
+              <p class="product-subtitle">
+                海拔800～900米，年平均气温21～23℃，
+              </p>
+              <p class="product-subtitle">
+                年积温≥7500℃，年降雨量700～900㎜，
+              </p>
+              <p class="product-subtitle">
+                年日照时数为1800～2200小时，
+              </p>
+              <p class="product-subtitle">
+                南亚热带干热河谷地带，拥有广阔的森林覆盖面。
+              </p>
+              <p class="product-subtitle">
+                哀牢山泉水，光照充足，温度适宜，水源丰富，环境优美，空气清新，“天然温室”。
+>>>>>>> b33ef7ca9ff25562a77743520dd771e682768784
               </p>
             </div>
           </div>
@@ -34,6 +60,7 @@
           <div class="contact-box">
             <div class="new-row">
               <div class="new-column">
+<<<<<<< HEAD
                 <p class="new-text">猕猴桃生长奇妙</p>
                 <p class="new-text">花蕾初绽</p>
                 <p class="new-text">夏果盛装</p>
@@ -111,6 +138,10 @@
                 </h4>
                 <p class="product-paragraph">
                   云南省楚雄彝族自治州楚雄市东华镇猕猴桃基地
+=======
+                <p class="product-tile">
+                  <span>分选</span>
+>>>>>>> b33ef7ca9ff25562a77743520dd771e682768784
                 </p>
                 <p class="trait two">特点：</p>
                 <p class="product-subtitle">
@@ -122,6 +153,7 @@
                 <p class="product-subtitle">
                   光滑的皮肤：金桃猕猴桃的皮肤光滑，不带有猕猴桃普遍具有的绒毛。
                 </p>
+<<<<<<< HEAD
                 <p class="product-subtitle">
                   丰富的香气：金桃猕猴桃散发出独特的香气，混合了芒果和猕猴桃的香甜味道。
                 </p>
@@ -136,9 +168,28 @@
                 </p>
                 <p class="product-subtitle">
                   多汁的果肉：金桃猕猴桃的果肉多汁且饱满，吃起来非常爽口，使人愉悦。
+=======
+                <p class="text-content"></p>
+
+                <p class="text-new">
+                  对果品原料进行一定温度时长的热水处理，促进水果热激蛋白生成，使水果表皮更加紧致，增强果品抗病性和抗逆性。
+                </p>
+                <p class="text-new">
+                  对果品原料进行一定温度时长的热水处理，促进水果热激蛋白生成，使水果表皮更加紧致，增强果品抗病性和抗逆性。
+>>>>>>> b33ef7ca9ff25562a77743520dd771e682768784
                 </p>
               </div>
+              <div class="new-column">
+                <img src="@/assets/img/金桃猕猴桃.png" alt="图片1" class="new-image" />
+              </div>
+              <div class="new-column">
+                <img src="@/assets/img/dt.png" alt="图片2" class="new-image" />
+              </div>
+              <div class="new-column">
+                <img src="@/assets/img/公司1.png" alt="图片3" class="new-image" />
+              </div>
             </div>
+<<<<<<< HEAD
             <div class="location-image">
               <img src="@/assets/img/金桃猕猴桃.png" alt="Chu Oranges Image" />
             </div>
@@ -232,6 +283,21 @@
                   src="@/assets/img/猕猴桃果脯.png"
                   alt="Chu Oranges Image"
                 />
+=======
+
+            <div class="new-row">
+              <div class="new-column">
+                <p class="new-text">全新包装</p>
+              </div>
+              <div class="new-column">
+                <img src="@/assets/img/bz1.jpg" alt="图片4" class="new-image" />
+              </div>
+              <div class="new-column">
+                <img src="@/assets/img/bz2.jpg" alt="图片5" class="new-image" />
+              </div>
+              <div class="new-column">
+                <img src="@/assets/img/bz3.jpg" alt="图片6" class="new-image" />
+>>>>>>> b33ef7ca9ff25562a77743520dd771e682768784
               </div>
             </div>
           </div>
@@ -270,6 +336,10 @@ export default {
 <style scoped>
 .product-display {
   background-color: #f5f5f5;
+<<<<<<< HEAD
+=======
+  padding-bottom: 20px;
+>>>>>>> b33ef7ca9ff25562a77743520dd771e682768784
 }
 
 .container {
@@ -309,8 +379,13 @@ export default {
   height: 100%;
   padding: 20px;
   box-sizing: border-box;
+<<<<<<< HEAD
   margin: 0 auto;
 }
+=======
+}
+
+>>>>>>> b33ef7ca9ff25562a77743520dd771e682768784
 
 .product-info h4 {
   margin-top: 20px;
@@ -326,12 +401,20 @@ export default {
 }
 
 .product-subtitle {
+<<<<<<< HEAD
   line-height: 2;
   font-size: 15px;
   text-align: justify;
   margin-left: 30px;
   font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
   padding: 5px 0;
+=======
+  margin-bottom: 0px;
+  line-height: 2;
+  font-size: 14px;
+  text-align: justify;
+  margin-left: 30px;
+>>>>>>> b33ef7ca9ff25562a77743520dd771e682768784
 }
 
 .product-paragraph {
@@ -384,15 +467,21 @@ export default {
   display: flex;
   align-items: center;
   margin-top: 20px;
+<<<<<<< HEAD
   margin-left: -10px;
   margin-right: -10px;
+=======
+>>>>>>> b33ef7ca9ff25562a77743520dd771e682768784
 }
 
 .new-column {
   flex: 1;
   margin-right: 20px;
+<<<<<<< HEAD
   margin-left: 10px;
   position: relative;
+=======
+>>>>>>> b33ef7ca9ff25562a77743520dd771e682768784
 }
 
 .new-text {
@@ -402,6 +491,7 @@ export default {
   display: flex;
   justify-content: center;
   align-items: center;
+<<<<<<< HEAD
   color: green;
 }
 
@@ -476,3 +566,21 @@ export default {
 </style>
 
          
+=======
+  color: #66bb6a;
+}
+
+.new-column img {
+  max-width: 100%;
+  height: auto;
+}
+
+.new-image {
+  max-width: 100%;
+  height: auto;
+}
+
+
+
+</style>
+>>>>>>> b33ef7ca9ff25562a77743520dd771e682768784
