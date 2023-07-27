@@ -6,7 +6,6 @@
         <el-carousel
           trigger="click"
           height="45vw"
-          @change="loadAnimate"
           :interval="5000"
           arrow="hover"
           ref="carousel"
@@ -24,7 +23,11 @@
       <div class="description">
         <h3>{{ image.title }}</h3>
         <p>{{ image.description }}</p>
-        <a href="#" class="more-link">
+        <a
+          href="/products"
+          class="more-link"
+          @click="handleMoreLinkClick"
+        >
           <span>更多</span>
         </a>
       </div>
@@ -33,7 +36,7 @@
       <div class="description2">
         <h3>徐香猕猴桃</h3>
         <p>口感独特、风味甜美</p>
-        <a href="#" class="more-link-1">
+        <a href="/products" class="more-link-1" @click="handleMoreLinkClick">
           <span>更多</span>
         </a>
       </div>
@@ -52,7 +55,11 @@
       <div class="description custom-bg">
         <h3>金桃猕猴桃</h3>
         <p>与众不同的口味和外观体验</p>
-        <a href="#" class="more-link custom-bg">
+        <a
+          href="/products"
+          class="more-link custom-bg"
+          @click="handleMoreLinkClick"
+        >
           <span>更多</span>
         </a>
       </div>
@@ -72,31 +79,47 @@
     <div class="contact-section">
       <div class="contact-details">
         <div class="contact-info">
-          <p>电话：0871-68581729</p>
-          <p>邮箱：md_csny@163.com 销售和市场</p>
-          <p>&#8195;&#8195;&#8195;hr_csny@163.com 人力资源</p>
-          <p>&#8195;&#8195;&#8195;cs_csny@163.com 客户服务</p>
-          <p>地址：云南省昆明市西山区华昌路128号 褚氏农业5楼</p>
+          <div class="contact-info-item">
+            <strong class="contact-info-label">电话：</strong>
+            <span class="contact-info-content"
+              >&nbsp;&nbsp;{{ contactData.phones }} (手机号)</span
+            >
+          </div>
+          <div class="contact-info-item">
+            <span class="contact-info-content fax"
+              >&nbsp;&nbsp;{{ contactData.fax }} (传真号)</span
+            >
+          </div>
+          <div class="contact-info-item">
+            <strong class="contact-info-label">邮箱：</strong>
+            <span class="contact-info-content"
+              >&nbsp;&nbsp;{{ contactData.email }}</span
+            >
+          </div>
+          <div class="contact-info-item">
+            <strong class="contact-info-label">地址：</strong>
+            <span class="contact-info-content">{{ contactData.address }}</span>
+          </div>
         </div>
       </div>
 
       <div class="contact-form">
         <el-form id="contactForm">
-          <el-row :justify="center">
+          <el-row>
             <el-col :span="50">
               <el-form-item label="您的姓名：">
                 <el-input v-model="name"></el-input>
               </el-form-item>
             </el-col>
           </el-row>
-          <el-row :justify="center">
+          <el-row>
             <el-col :span="50">
               <el-form-item label="您的电话：">
                 <el-input v-model="phone"></el-input>
               </el-form-item>
             </el-col>
           </el-row>
-          <el-row :justify="center">
+          <el-row>
             <el-col :span="70">
               <el-form-item label="您的留言：">
                 <el-input
@@ -107,7 +130,7 @@
               </el-form-item>
             </el-col>
           </el-row>
-          <el-row :justify="center">
+          <el-row>
             <el-col :span="10">
               <el-button type="primary" @click="submitForm">提交留言</el-button>
             </el-col>
@@ -123,6 +146,7 @@
 import Footercom from "@/components/Footercom.vue";
 import Headercom from "@/components/Headercom.vue";
 import { ElMessage } from "element-plus";
+import { mapState, mapMutations } from "vuex";
 
 export default {
   name: "HomeView",
@@ -147,9 +171,18 @@ export default {
       name: "",
       phone: "",
       message: "",
+      contactData: {},
     };
   },
+  computed: {
+    ...mapState(["activeMenu"]),
+  },
   methods: {
+    ...mapMutations(["setActiveMenu"]),
+    handleMoreLinkClick() {
+      // 这里使用 Vue Router 的 `push` 方法来跳转到指定路由，并将导航栏的 `activeMenu` 设置为对应的路由名称
+      this.setActiveMenu("products");
+    },
     submitForm() {
       if (this.name == "" || this.phone == "" || this.message == "") {
         ElMessage.error("各项不能为空");
@@ -188,6 +221,20 @@ export default {
           alert("请求出错，提交失败！");
         });
     },
+    fetchContactData() {
+      this.axios
+        .get("http://127.0.0.1:5000/get_contact")
+        .then((response) => {
+          this.contactData = response.data;
+        })
+        .catch((error) => {
+          console.error(error);
+          alert("请求出错，获取联系信息失败！");
+        });
+    },
+  },
+  mounted() {
+    this.fetchContactData();
   },
 };
 </script>
@@ -268,7 +315,6 @@ export default {
   background-size: cover;
   margin-right: 0;
 }
-
 
 .description2 {
   flex: 0 0 50%;
@@ -371,7 +417,6 @@ export default {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  margin-top: 5px;
   width: 100%;
 }
 .contact-details {
@@ -387,9 +432,32 @@ export default {
   white-space: pre-wrap;
 }
 
-.contact-info p {
+.contact-info-item {
+  display: flex;
+  align-items: baseline;
   margin-bottom: 5px;
-  padding: 7px;
+}
+
+.contact-info-label {
+  display: inline-block;
+  width: 50px; /* 设置标签宽度 */
+  font-weight: bold;
+}
+
+.contact-info-content {
+  display: inline-block; /* 设置为行内块，以便控制宽度 */
+  line-height: 24px; /* 设置统一的行高 */
+  flex: 1;
+  text-align: left;
+}
+
+.phone {
+  display: block; /* 设置为块级元素，使其垂直排列 */
+}
+
+.fax {
+  display: block; /* 设置为块级元素，使其垂直排列 */
+  margin-left: 50px; /* 调整传真号与标签对齐的位置 */
 }
 
 .contact-form {

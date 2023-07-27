@@ -46,6 +46,40 @@
             账户管理
           </router-link>
         </li>
+        <li :class="{ 'custom-active': $route.path === '/managehome/profile' }">
+          <router-link to="/managehome/profile">
+            <el-icon class="custom-setting-icon">
+              <Paperclip />
+            </el-icon>
+            简介管理
+          </router-link>
+        </li>
+        <li
+          :class="{
+            'custom-active': $route.path === '/managehome/contacemodfily',
+          }"
+        >
+          <router-link to="/managehome/contacemodfily">
+            <el-icon class="custom-setting-icon">
+              <PhoneFilled />
+            </el-icon>
+            联系管理
+          </router-link>
+        </li>
+        <li :class="{ 'custom-active': $route.path === '/' }">
+          <router-link to="/" @click="handleMoreLinkClick">
+            <el-icon class="custom-setting-icon">
+              <ArrowLeft />
+            </el-icon>
+            返回首页
+          </router-link>
+        </li>
+        <li @click="logout">
+          <el-icon class="custom-setting-icon">
+            <Remove />
+          </el-icon>
+          退出登录
+        </li>
       </ul>
     </div>
     <div class="custom-setting-right">
@@ -55,10 +89,33 @@
 </template>
 
 <script>
+import { mapState, mapMutations } from "vuex";
+
 export default {
   name: "headercom",
-  methods:{
+  computed: {
+    ...mapState(["activeMenu"]),
   },
+  methods: {
+    ...mapMutations(["setActiveMenu"]),
+    handleMoreLinkClick() {
+      // 这里使用 Vue Router 的 `push` 方法来跳转到指定路由，并将导航栏的 `activeMenu` 设置为对应的路由名称
+      this.setActiveMenu("home");
+    },
+    logout() {
+      this.axios
+        .post("http://127.0.0.1:5000/exitlogin")
+        .then((res) => {
+          if (res.data.res === "ok") {
+            this.$router.push("/");
+          }
+        })
+        .catch((error) => {
+          console.error("Error:", error);
+        });
+    },
+  },
+
   mounted() {
     this.axios.post("http://127.0.0.1:5000/islogin").then((res) => {
       if (res.data.res == "yes") {

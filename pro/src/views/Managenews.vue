@@ -39,7 +39,7 @@
 
           <QuillEditor
             :options="options"
-            style="height: 400px; width: 505px"
+            style="height: 350px; width: 505px"
             v-model:content="content"
             contentType="html"
             ref="QuillEditor"
@@ -204,6 +204,11 @@ export default {
     handleUpload(event) {
       //获取文件
       let file = event.target.files[0];
+
+      // 判断文件是否存在
+      if (!file) {
+        return; // 如果没有选择文件，直接返回，不继续执行后续代码
+      }
       let type = ["image/jpeg", "image/jpg", "image/png"];
       let isJPG = type.includes(file.type);
       let isLt2M = file.size / 1024 / 1024 < 2;

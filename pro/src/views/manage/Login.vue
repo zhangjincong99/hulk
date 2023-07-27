@@ -11,7 +11,7 @@
         <el-input
           type="password"
           v-model="password"
-          class="input-field"
+          class="input-field-two"
         ></el-input>
       </el-form-item>
       <el-row class="button-row">
@@ -77,6 +77,10 @@ export default {
 </script>
 
 <style scoped>
+.input-field-two {
+  margin-left: 13px;
+}
+
 .login-container {
   display: flex;
   justify-content: center;

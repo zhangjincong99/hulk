@@ -18,7 +18,7 @@
             </td>
             <td>
               <router-link
-                to="/AboutKiwi"
+                to="/aboutKiwi"
                 class="nav-link"
                 :class="{ active: activeMenu === 'kiwi' }"
                 @click="handleTabClick('kiwi')"
@@ -33,7 +33,7 @@
                 :class="{ active: activeMenu === 'news' }"
                 @click="handleTabClick('news')"
               >
-                新闻公告
+                新闻中心
               </router-link>
             </td>
             <td>

@@ -5,17 +5,16 @@ import History from '../views/History.vue'
 import Managehome from '../views/manage/Managehome.vue'
 import Login from '../views/manage/Login.vue'
 import Notfoundpage from '../views/Notfoundpage.vue'
-
 import Shownews from '../views/Shownews.vue'
 import Managenews from '../views/Managenews.vue'
 import Mgemessage from '../views/Mgemessage.vue'
 import Account from '../views/Account.vue'
 import Mgenews from '../views/Mgenews.vue'
-
-
-import Products from '../views/ProductsPage.vue'
-import Contact from '../views/ContactPage.vue'
 import AboutKiwi from '../views/AboutKiwiPage.vue'
+import Product from '../views/productspage.vue'
+import Contact from '../views/contactpage.vue'
+import Profile from '../views/Profile.vue'
+import Contacemodfily from '../views/manage/Contact.vue'
 
 
 const routes = [
@@ -65,6 +64,16 @@ const routes = [
         path: 'mgenews',
         name: "Mgenews",
         component: Mgenews
+      },
+      {
+        path: 'profile',
+        name: "Profile",
+        component: Profile
+      },
+      {
+        path: 'contacemodfily',
+        name: "Contacemodfily",
+        component: Contacemodfily
       }
     ]
   },
@@ -84,17 +93,17 @@ const routes = [
     component: Shownews
   },
   {
-    path: '/Products',
-    name: Products,
-    component: Products
+    path: '/products',
+    name: Product,
+    component: Product
   },
   {
-    path: '/Contact',
+    path: '/contact',
     name: Contact,
     component: Contact
   },
   {
-    path: '/AboutKiwi',
+    path: '/aboutKiwi',
     name: AboutKiwi,
     component: AboutKiwi
   },

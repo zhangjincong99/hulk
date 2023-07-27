@@ -1,27 +1,46 @@
 <template>
   <div class="news-details">
-    <h2 class="news-title">{{ $route.query.title }}</h2>
-    <p class="news-time">时间:{{ $route.query.time }}</p>
-    <p class="news-author">作者: {{ $route.query.author }}</p>
+    <h2 class="news-title">{{ news.title }}</h2>
+    <p class="news-time">时间:{{ news.time }}</p>
+    <p class="news-author">作者: {{ news.author }}</p>
     <article
+      ref="newsContent"
       class="news-content"
-      v-html="renderContentWithImages($route.query.content)"
+      v-html="processedContent"
     ></article>
   </div>
 </template>
 
 <script>
 export default {
-  mounted() {
-    // 可以在这里处理新闻内容的样式或其他操作
+  data() {
+    return {
+      news: {
+        title: "",
+        time: "",
+        author: "",
+        content: "",
+      },
+      processedContent: "",
+    };
+  },
+  created() {
+    this.processNewsContent();
   },
   methods: {
+    async processNewsContent() {
+      this.news.title = this.$route.query.title || "";
+      this.news.time = this.$route.query.time || "";
+      this.news.author = this.$route.query.author || "";
+      this.news.content = this.$route.query.content || "";
+
+      this.processedContent = this.renderContentWithImages(this.news.content);
+    },
     renderContentWithImages(content) {
       const imgRegex = /<img[^>]+src="([^">]+)"/g;
-      const processedContent = content.replace(
-        imgRegex,
-        '<img class="news-image" src="$1" style="max-width: 100%; max-height: 100%;"'
-      );
+      const processedContent = content.replace(imgRegex, (match, src) => {
+        return `<img class="news-image" src="${src}" ref="newsImage" style="max-width: 100%; max-height: 100%; display: block; margin:0 auto;"`;
+      });
 
       const paragraphs = processedContent.split("<p>");
       let processedParagraphs = [];

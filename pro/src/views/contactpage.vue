@@ -11,34 +11,47 @@
       </div>
       <div class="contact-row">
         <div class="contact-col">
-          <img src="@/assets/img/zp.png" alt="Contact Image" class="contact-image" />
+          <img
+            src="@/assets/img/zp.png"
+            alt="Contact Image"
+            class="contact-image"
+          />
           <div class="contact-description">
-            <p class="text-title">联系方式</p>
-            <p class="text-content">0871-68581729</p>
+            <p class="text">联系方式</p>
+            <p class="text-content">{{contactData.phones}}</p>
           </div>
         </div>
         <div class="contact-col">
-          <img src="@/assets/img/zp.png" alt="Contact Image" class="contact-image" />
+          <img
+            src="@/assets/img/zp.png"
+            alt="Contact Image"
+            class="contact-image"
+          />
           <div class="contact-description">
-            <p class="text-title">企业邮箱</p>
-            <p class="text-content">md_csny@163.com 销售和市场</p>
-            <p>hr_csny@163.com 人力资源</p>
-            <p>cs_csny@163.com 客户服务</p>
+            <p class="text">企业邮箱</p>
+            <p class="text-content">{{ contactData.email }}</p>
           </div>
         </div>
         <div class="contact-col">
-          <img src="@/assets/img/zp.png" alt="Contact Image" class="contact-image" />
+          <img
+            src="@/assets/img/zp.png"
+            alt="Contact Image"
+            class="contact-image"
+          />
           <div class="contact-description">
-            <p class="text-title">微薄</p>
+            <p class="text">微薄</p>
             <p class="text-content">彝运猕猴桃</p>
           </div>
         </div>
         <div class="contact-col">
-          <img src="@/assets/img/zp.png" alt="Contact Image" class="contact-image" />
+          <img
+            src="@/assets/img/zp.png"
+            alt="Contact Image"
+            class="contact-image"
+          />
           <div class="contact-description">
-            <p class="text-title">公司位置</p>
-            <p class="text-content">云南省昆明市西山区华</p>
-            <p>昌路128号</p>
+            <p class="text">公司位置</p>
+            <p class="text-content">{{ contactData.address }}</p>
           </div>
         </div>
       </div>
@@ -46,17 +59,24 @@
 
     <div class="contact-box">
       <div class="contact-row">
-        <div class="contact-col" style="flex-basis: 75%;">
-          <img src="@/assets/img/dt.png" alt="Contact Image" class="contact-image" />
+        <div class="contact-col" style="flex-basis: 70%">
+          <img
+            src="@/assets/img/dt.png"
+            alt="Contact Image"
+            class="contact-image"
+          />
         </div>
-        <div class="contact-col" style="flex-basis: 25%;">
-          <img src="@/assets/img/ewm.png" alt="Contact Image" class="contact-image" />
+        <div class="contact-col" style="flex-basis: 30%">
+          <img
+            src="@/assets/img/ewm.jpg"
+            alt="Contact Image"
+            class="contact-image"
+          />
           <div class="contact-description">
-            <p class="text-title">关注微信公众号</p>
+            <p class="text">扫码关注微信公众号</p>
           </div>
         </div>
       </div>
-
     </div>
 
     <div class="contact-divider">
@@ -74,47 +94,62 @@
     <div class="contact-section">
       <div class="contact-details">
         <div class="contact-info">
-          <p>电话：0871-68581729</p>
-          <p>邮箱：md_csny@163.com 销售和市场</p>
-          <p>&#8195;&#8195;&#8195;hr_csny@163.com 人力资源</p>
-          <p>&#8195;&#8195;&#8195;cs_csny@163.com 客户服务</p>
-          <p>地址：云南省昆明市西山区华昌路128号 褚氏农业5楼</p>
+          <div class="contact-info-item">
+            <strong class="contact-info-label">电话：</strong>
+            <span class="contact-info-content"
+              >&nbsp;&nbsp;{{ contactData.phones }}&nbsp;(手机号)</span
+            >
+          </div>
+          <div class="contact-info-item">
+            <span class="contact-info-content fax"
+              >&nbsp;&nbsp;{{ contactData.fax }}&nbsp;(传真号)</span
+            >
+          </div>
+          <div class="contact-info-item">
+            <strong class="contact-info-label">邮箱：</strong>
+            <span class="contact-info-content">&nbsp;&nbsp;{{ contactData.email }}</span>
+          </div>
+          <div class="contact-info-item">
+            <strong class="contact-info-label">地址：</strong>
+            <span class="contact-info-content">{{ contactData.address }}</span>
+          </div>
         </div>
       </div>
 
       <div class="contact-form">
         <el-form id="contactForm">
-          <el-row :justify="center">
+          <el-row>
             <el-col :span="50">
               <el-form-item label="您的姓名：">
                 <el-input v-model="name"></el-input>
               </el-form-item>
             </el-col>
           </el-row>
-          <el-row :justify="center">
+          <el-row>
             <el-col :span="50">
               <el-form-item label="您的电话：">
                 <el-input v-model="phone"></el-input>
               </el-form-item>
             </el-col>
           </el-row>
-          <el-row :justify="center">
+          <el-row>
             <el-col :span="70">
               <el-form-item label="您的留言：">
-                <el-input type="textarea" v-model="message" class="custom-input"></el-input>
+                <el-input
+                  type="textarea"
+                  v-model="message"
+                  class="custom-input"
+                ></el-input>
               </el-form-item>
             </el-col>
           </el-row>
-          <el-row :justify="center">
+          <el-row>
             <el-col :span="10">
               <el-button type="primary" @click="submitForm">提交留言</el-button>
             </el-col>
           </el-row>
         </el-form>
       </div>
-
-
-
     </div>
     <Footercom></Footercom>
   </div>
@@ -136,6 +171,7 @@ export default {
       name: "",
       phone: "",
       message: "",
+      contactData: {},
     };
   },
   methods: {
@@ -177,28 +213,32 @@ export default {
           alert("请求出错，提交失败！");
         });
     },
+    fetchContactData() {
+      this.axios
+        .get("http://127.0.0.1:5000/get_contact")
+        .then((response) => {
+          this.contactData = response.data;
+        })
+        .catch((error) => {
+          console.error(error);
+          alert("请求出错，获取联系信息失败！");
+        });
+    },
+  },
+  mounted() {
+    this.fetchContactData();
   },
 };
 </script>
 
 <style>
-.contact-divider {
-  display: flex;
-  align-items: center;
+.contact-info {
   margin-top: 20px;
-}
-
-.ev-line {
-  margin-left: 90px;
-  height: 40px;
-  border-left: 5px solid rgb(33, 192, 75);
-}
-
-.ev-module-edit h3 {
-  text-align: left;
-  font-size: 24px;
-  margin-bottom: 0;
-  margin-top: 0;
+  margin-left: 250px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  white-space: pre-wrap;
 }
 
 .contact-info {
@@ -210,9 +250,23 @@ export default {
   white-space: pre-wrap;
 }
 
-.contact-info p {
+.contact-info-item {
+  display: flex;
+  align-items: baseline;
   margin-bottom: 5px;
-  padding: 7px;
+  padding: 5px;
+}
+
+.contact-info-label {
+  display: inline-block;
+  width: 50px; /* 设置标签宽度 */
+  font-weight: bold;
+}
+
+.contact-info-content {
+  display: inline-block; /* 设置为行内块，以便控制宽度 */
+  line-height: 24px; /* 设置统一的行高 */
+  flex: 1;
 }
 
 .contact-form {
@@ -246,8 +300,6 @@ export default {
 
 /* 添加的样式 */
 .contact-box {
-  margin-top: 20px;
-  /* border: 1px solid #ccc; */
   padding: 10px;
   margin-left: 5%;
   margin-right: 5%;
@@ -260,11 +312,9 @@ export default {
   align-items: center;
 }
 
-
 .contact-title {
   font-size: 24px;
   font-weight: bold;
-  ;
   padding: 10px;
 }
 
@@ -303,9 +353,9 @@ export default {
   margin-left: 0px;
 }
 
-.text-title {
-  font-size: 28px;
-  margin-left: 0px;
+.text {
+  font-size: 25px;
+  font-weight: bold;
 }
 
 .text-content {

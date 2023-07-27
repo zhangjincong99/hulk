@@ -1,11 +1,12 @@
 <template>
   <div class="custom-table">
     <el-table
-      height="600px"
+      height="510px"
       style="width: 100%"
       border
       size="small"
-      :data="data"
+      :data="pagedData"
+      :default-sort="{ prop: 'id', order: 'ascending' }"
       @selection-change="handleSelectionChange"
     >
       <el-table-column
@@ -47,6 +48,18 @@
       </el-table-column>
     </el-table>
   </div>
+  <div class="pagination-container">
+    <el-pagination
+      class="pagination"
+      background
+      layout="prev, pager, next, total"
+      :current-page="currentPage"
+      :page-size="pageSize"
+      :total="total"
+      @current-change="handleCurrentPageChange"
+    >
+    </el-pagination>
+  </div>
 </template>
 
 <script>
@@ -55,7 +68,11 @@ import axios from "axios";
 export default {
   data() {
     return {
-      data: [], // 存放后端数据的数组
+      tableData: [], // 存放后端数据的数组
+      pagedData: [], // 当前页展示的数据
+      currentPage: 1, // 当前页码
+      pageSize: 10, // 每页展示的条数
+      total: 0, // 总条数
     };
   },
   methods: {
@@ -77,14 +94,36 @@ export default {
         });
     },
     fetchData() {
+      const start = (this.currentPage - 1) * this.pageSize;
+      const end = start + this.pageSize - 1;
       axios
-        .get("http://127.0.0.1:5000/mgemessages")
+        .get(`http://127.0.0.1:5000/mgemessages?start=${start}&end=${end}`)
         .then((response) => {
-          this.data = response.data; // 将获取的后端数据赋值给组件的 data 属性
+          this.tableData = response.data.data; // 将获取的后端数据赋值给组件的 tableData 属性
+          this.total = response.data.total; // 设置总条数
+          this.updatePagedData(); // 更新当前页展示的数据
         })
         .catch((error) => {
           console.error("Error:", error);
         });
+    },
+    updatePagedData() {
+      const startIndex = (this.currentPage - 1) * this.pageSize;
+      const endIndex = Math.min(
+        startIndex + this.pageSize,
+        this.tableData.length
+      );
+      const startIndex1 = 0;
+      this.pagedData = this.tableData.slice(startIndex1, endIndex);
+    },
+    handlePageSizeChange(pageSize) {
+      this.pageSize = pageSize;
+      this.currentPage = 1; // 重置为第一页
+      this.fetchData();
+    },
+    handleCurrentPageChange(currentPage) {
+      this.currentPage = currentPage;
+      this.fetchData();
     },
   },
   mounted() {
@@ -112,5 +151,12 @@ export default {
 
 .custom-table .el-table .el-button {
   padding: 6px 12px;
+}
+
+.pagination-container {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 </style>
